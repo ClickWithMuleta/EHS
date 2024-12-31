@@ -1,0 +1,153 @@
+{% extends 'hospital/patient_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+{% load static %}
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+
+    .menu {
+      top: 50px;
+    }
+
+    button {
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<br><br>
+
+  <div style=" width: 740px; margin-left:145px;"> 
+    {% if doctors%}
+    <center> <span style="font-size:40px; color: #04AA6D; ">Recommondation!</span><br>
+   <span style="font-size:21px; color:black; ">Depending on your symptoms here is doctor for you. <br> Please choose the following doctor based on their status and exprience.</span></center>
+<br>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Profile</th>
+          <th> Doctor_Name</th>
+          <th>Department</th>
+          <th>Working_Hospital</th>
+          <th>Expriance</th>
+          <th><span style="color: #04AA6D;">Status</span></th>
+
+
+
+        </tr>
+      </thead>
+    {% for m in messages %}
+       {{m}}
+  </div>
+  <div>
+   
+      {% for d in doctors %}
+      <tr>
+
+        <td> <img src="{% static d.profile_pic.url %}" alt="Profile Pic" height="100px" width="80px" /></td>
+        <td> {{d.get_name}}</td>
+        <td>{{d.department}}</td>
+        <td>{{d.hospital_name}}</td> 
+        <td>{{d.expriance}} yrs</td>
+         <td>
+          {% if d.is_avialable %}
+
+               {% if d.admitDate == d.todayDate %}
+           <span >  <span style="color:  rgb(9, 152, 218); font-weight:bold;">Avialable Today</span> <br><br><span style="color: fuchsia; font-weight:bold;"> Likes</span>(0%) <span style="color: fuchsia; font-weight:bold;"> Votes</span>(0)</span>
+           
+               {%else%}
+                     {% if d.expriance > 5 %}
+                          <span >  <span style="color:  rgb(9, 152, 218); font-weight:bold;">Avialable Today</span> <br><br><span style="color: fuchsia; font-weight:bold;"> Likes</span>(99%) <span style="color: fuchsia; font-weight:bold;"> Votes</span>(7000)</span>
+                      {%else%}
+                          <span >  <span style="color:  rgb(9, 152, 218); font-weight:bold;">Avialable Today</span> <br><br><span style="color: fuchsia; font-weight:bold;"> Likes</span>(50%) <span style="color: fuchsia; font-weight:bold;"> Votes</span>(3000)</span>
+                      {%endif%}
+               {%endif%}
+           <td><a href="{% url 'patient-view-appointment-details' d.id  %}">  <br> <button style="width:auto;">book</button> </a> </td>
+
+          {%else%}
+
+          {% if d.admitDate == d.todayDate %}
+          <span >  <span style="color:  rgb(9, 152, 218); font-weight:bold;"> Not Avialable Today</span> <br><br><span style="color: fuchsia; font-weight:bold;"> Likes</span>(0%) <span style="color: fuchsia; font-weight:bold;"> Votes</span>(0)</span>
+              {%else%}
+                    {% if d.expriance > 5 %}
+                         <span >  <span style="color:  rgb(9, 152, 218); font-weight:bold;"> Not Avialable Today</span> <br><br><span style="color: fuchsia; font-weight:bold;"> Likes</span>(99%) <span style="color: fuchsia; font-weight:bold;"> Votes</span>(7000)</span>
+                         {%else%}
+                         <span >  <span style="color:  rgb(9, 152, 218); font-weight:bold;"> Not Avialable Today</span> <br><br><span style="color: fuchsia; font-weight:bold;"> Likes</span>(50%) <span style="color: fuchsia; font-weight:bold;"> Votes</span>(3000)</span>
+
+                         {%endif%}
+              {%endif%}  
+              <td><br><span style="color: white;">#######</span><img src="{% static "images/emergency.png" %}" alt=" Pic"  width="90%"   /></td>
+      
+          {%endif%}
+         </td> 
+        </th>
+
+        </tr>
+      {% endfor %}
+    </table>
+        
+     {%endfor%}
+     
+{% elif not doctors and messages %}
+<center> <span style="font-size:40px; color:rgb(224, 9, 59); ">Recommondation!</span><br><br>
+ <span style="font-size:30px; color:deeppink; ">Sorry There is No Doctor Avialable. Please Try Again.</span></center>
+
+
+      
+     {% for m in messages %}
+      {{m}}
+      {% endfor %}
+      <br><br><br>
+      <center><a href="/book-appointment"><button style="width:auto;">Back to Form</button> </a></center>
+     {% endif%}
+   </div>
+
+
+
+
+{% endblock content %}

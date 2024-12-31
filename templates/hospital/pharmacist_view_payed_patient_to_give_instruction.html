@@ -1,0 +1,53 @@
+{% extends 'hospital/pharmacist_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">List Of Payed Patients</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Medicine</th>
+          <th>Dosage</th>
+          <th>Number Of Days</th>
+          <th> <span style="color: rgb(196, 16, 241);">Action</span></th>
+        </tr>
+      </thead>
+      {% for p in payedPatient %}
+      <tr>
+        <td>{{p.patientName}}</td>
+        <td>{{p.medicine}}</td>
+        <td>{{p.dosage}}</td>
+        <td>{{p.numberOfDays}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'pharmacist-giveMedicine-instruction' p.id  %}"><span class="glyphicon glyphicon-log-out"></span></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

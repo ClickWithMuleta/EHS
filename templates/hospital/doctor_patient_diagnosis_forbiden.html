@@ -1,0 +1,43 @@
+{% extends 'hospital/doctor_base.html' %}
+{% block content %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      
+      button:hover {
+        opacity: 0.8;
+      }
+  </style>
+</head>
+
+<center> <span style="font-size:40px; color:rgb(224, 9, 59); ">403 Forbidden!</span></center>
+<center> <span style="font-size:40px; color:rgb(224, 9, 59); ">Not Your Patient</span></center>
+
+      <br><br>
+      <center><a href="/doctor-diagnosis-patient"><button style="width:auto;">Back</button> </a></center>
+
+{% endblock content %}

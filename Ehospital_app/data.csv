@@ -1,0 +1,618 @@
+symptoms,department
+shortness of breath,Cardiologist
+palpitations,Cardiologist
+severe bleeding,EmergencyDepartment
+unconsciousness,EmergencyDepartment
+severe allergic reaction,EmergencyDepartment
+broken bone,EmergencyDepartment
+severe abdominal pain,EmergencyDepartment
+anxiety,Psychiatrist
+hallucinations,Psychiatrist
+difficulty concentrating,Psychiatrist
+skin rash,Dermatologist
+acne,Dermatologist
+eczema,Dermatologist
+psoriasis,Dermatologist
+hair loss,Dermatologist
+sneezing,Allergist
+itchy eyes,Allergist
+hives,Allergist
+swelling,Allergist
+ear pain,Pediatrician
+vomiting,Pediatrician
+diarrhea,Pediatrician
+cough in children,Pediatrician
+joint pain,Orthopedist
+back pain,Orthopedist
+stiffness,Orthopedist
+swelling in joints,Orthopedist
+pre-surgery anxiety,Anesthesiologist
+difficulty sleeping,Anesthesiologist
+post-surgery pain,Anesthesiologist
+pain during childbirth,Anesthesiologist
+unexplained weight loss,Oncologist
+persistent fatigue,Oncologist
+lumps or swelling,Oncologist
+chronic pain,Oncologist
+unexplained bleeding,Oncologist
+blood in urine,Nephrologist
+swelling in ankles,Nephrologist
+high blood pressure,Nephrologist
+frequent urination,Nephrologist
+painful urination,Nephrologist
+heart beat,Cardiologist
+general check-up,GeneralPhysician
+fever,Pediatrician
+cancer diagnosis,Oncologist
+pre-surgery assessment,Anesthesiologist
+bleeding,EmergencyDepartement
+insomnia,Psychiatrist
+back pain,Orthopedist
+cough,Pediatrician
+skin infection,Dermatologist
+acute pain,EmergencyDepartement
+panic attacks,Psychiatrist
+thyroid problems,GeneralPhysician
+leukemia,Oncologist
+heart attack,Cardiologist
+childhood vaccination,Pediatrician
+bipolar disorder,Psychiatrist
+diabetes management,GeneralPhysician
+tumor pain,Oncologist
+trauma,EmergencyDepartement
+arthritis,Orthopedist
+schizophrenia,Psychiatrist
+radiation therapy,Oncologist
+dialysis,Nephrologist
+cholesterol management,GeneralPhysician
+psoriasis,Dermatologist
+ear infection,Pediatrician
+regional anesthesia,Anesthesiologist
+fractures,Orthopedist
+chemotherapy side effects,Oncologist
+common cold,GeneralPhysician
+sports injuries,Orthopedist
+
+dizziness,Cardiologist
+fainting,Cardiologist
+leg swelling,Cardiologist
+rapid heartbeat,Cardiologist
+irregular heartbeat,Cardiologist
+high blood pressure,Cardiologist
+low blood pressure,Cardiologist
+chest tightness,Cardiologist
+syncope,Cardiologist
+exercise intolerance,Cardiologist
+angina,Cardiologist
+cyanosis,Cardiologist
+orthopnea,Cardiologist
+paroxysmal nocturnal dyspnea,Cardiologist
+peripheral edema,Cardiologist
+claudication,Cardiologist
+heart murmur,Cardiologist
+bradycardia,Cardiologist
+tachycardia,Cardiologist
+heart flutter,Cardiologist
+heart failure symptoms,Cardiologist
+congestive heart failure,Cardiologist
+coronary artery disease,Cardiologist
+myocardial infarction,Cardiologist
+stroke,Cardiologist
+transient ischemic attack,Cardiologist
+atrial fibrillation,Cardiologist
+ventricular fibrillation,Cardiologist
+ventricular tachycardia,Cardiologist
+atrial flutter,Cardiologist
+endocarditis,Cardiologist
+pericarditis,Cardiologist
+myocarditis,Cardiologist
+cardiomyopathy,Cardiologist
+aortic aneurysm,Cardiologist
+aortic dissection,Cardiologist
+mitral valve prolapse,Cardiologist
+mitral stenosis,Cardiologist
+aortic stenosis,Cardiologist
+tricuspid regurgitation,Cardiologist
+pulmonary hypertension,Cardiologist
+cardiac arrest,Cardiologist
+ischemia,Cardiologist
+stable angina,Cardiologist
+unstable angina,Cardiologist
+silent ischemia,Cardiologist
+
+itchy eyes,Allergist
+runny nose,Allergist
+nasal congestion,Allergist
+postnasal drip,Allergist
+sinus pressure,Allergist
+sinus headache,Allergist
+wheezing,Allergist
+coughing,Allergist
+chest tightness,Allergist
+skin rash,Allergist
+hives,Allergist
+eczema,Allergist
+swelling of lips,Allergist
+swelling of face,Allergist
+swelling of tongue,Allergist
+itching,Allergist
+redness of skin,Allergist
+watery eyes,Allergist
+allergic conjunctivitis,Allergist
+chronic sinusitis,Allergist
+allergic rhinitis,Allergist
+food allergies,Allergist
+drug allergies,Allergist
+insect sting allergies,Allergist
+allergic asthma,Allergist
+exercise-induced asthma,Allergist
+seasonal allergies,Allergist
+pet allergies,Allergist
+dust mite allergies,Allergist
+mold allergies,Allergist
+latex allergy,Allergist
+contact dermatitis,Allergist
+angioedema,Allergist
+anaphylaxis,Allergist
+delayed hypersensitivity,Allergist
+oral allergy syndrome,Allergist
+chronic urticaria,Allergist
+atopic dermatitis,Allergist
+allergic contact dermatitis,Allergist
+occupational allergies,Allergist
+allergic bronchopulmonary aspergillosis,Allergist
+allergic fungal sinusitis,Allergist
+allergy to biological agents,Allergist
+recurrent ear infections,Allergist
+immune deficiencies,Allergist
+secondary immunodeficiencies,Allergist
+immunotherapy side effects,Allergist
+food protein-induced enterocolitis syndrome,Allergist
+
+acne,Dermatologist
+eczema,Dermatologist
+psoriasis,Dermatologist
+rosacea,Dermatologist
+hives,Dermatologist
+contact dermatitis,Dermatologist
+seborrheic dermatitis,Dermatologist
+skin rash,Dermatologist
+itchy skin,Dermatologist
+dry skin,Dermatologist
+oily skin,Dermatologist
+redness of skin,Dermatologist
+swelling of skin,Dermatologist
+blistering,Dermatologist
+skin peeling,Dermatologist
+cracked skin,Dermatologist
+discolored patches,Dermatologist
+hyperpigmentation,Dermatologist
+hypopigmentation,Dermatologist
+dark spots,Dermatologist
+moles,Dermatologist
+skin tags,Dermatologist
+warts,Dermatologist
+skin growths,Dermatologist
+skin lesions,Dermatologist
+scaly patches,Dermatologist
+skin infections,Dermatologist
+fungal infections,Dermatologist
+bacterial infections,Dermatologist
+viral infections,Dermatologist
+nail discoloration,Dermatologist
+nail deformities,Dermatologist
+excessive hair growth,Dermatologist
+scalp conditions,Dermatologist
+dandruff,Dermatologist
+sunburn,Dermatologist
+melasma,Dermatologist
+vitiligo,Dermatologist
+cold sores,Dermatologist
+herpes simplex,Dermatologist
+shingles,Dermatologist
+ringworm,Dermatologist
+athlete's foot,Dermatologist
+impetigo,Dermatologist
+boils,Dermatologist
+cysts,Dermatologist
+lipomas,Dermatologist
+skin cancer,Dermatologist
+melanoma,Dermatologist
+basal cell carcinoma,Dermatologist
+squamous cell carcinoma,Dermatologist
+
+severe headache,EmergencyDepartment
+fainting,EmergencyDepartment
+dizziness,EmergencyDepartment
+confusion,EmergencyDepartment
+seizures,EmergencyDepartment
+uncontrolled bleeding,EmergencyDepartment
+abdominal pain,EmergencyDepartment
+severe burns,EmergencyDepartment
+broken bones,EmergencyDepartment
+loss of consciousness,EmergencyDepartment
+sudden vision loss,EmergencyDepartment
+anaphylaxis,EmergencyDepartment
+stroke symptoms,EmergencyDepartment
+heart attack symptoms,EmergencyDepartment
+difficulty breathing,EmergencyDepartment
+high fever,EmergencyDepartment
+severe vomiting,EmergencyDepartment
+persistent diarrhea,EmergencyDepartment
+acute back pain,EmergencyDepartment
+head injury,EmergencyDepartment
+neck injury,EmergencyDepartment
+severe lacerations,EmergencyDepartment
+poisoning,EmergencyDepartment
+drug overdose,EmergencyDepartment
+suicidal thoughts,EmergencyDepartment
+homicidal thoughts,EmergencyDepartment
+motor vehicle accident injuries,EmergencyDepartment
+fall injuries,EmergencyDepartment
+electrical shock,EmergencyDepartment
+near drowning,EmergencyDepartment
+asthma attack,EmergencyDepartment
+severe dehydration,EmergencyDepartment
+hypothermia,EmergencyDepartment
+heat stroke,EmergencyDepartment
+animal bites,EmergencyDepartment
+foreign body ingestion,EmergencyDepartment
+severe infections,EmergencyDepartment
+uncontrolled pain,EmergencyDepartment
+complicated labor,EmergencyDepartment
+preterm labor,EmergencyDepartment
+ruptured aneurysm,EmergencyDepartment
+pulmonary embolism,EmergencyDepartment
+trauma,EmergencyDepartment
+gunshot wound,EmergencyDepartment
+stab wound,EmergencyDepartment
+acute urinary retention,EmergencyDepartment
+acute psychiatric crisis,EmergencyDepartment
+severe respiratory distress,EmergencyDepartment
+
+persistent sadness,Psychiatrist
+extreme mood swings,Psychiatrist
+excessive worry,Psychiatrist
+uncontrolled anger,Psychiatrist
+feelings of hopelessness,Psychiatrist
+social withdrawal,Psychiatrist
+delusions,Psychiatrist
+hallucinations,Psychiatrist
+paranoia,Psychiatrist
+panic attacks,Psychiatrist
+insomnia,Psychiatrist
+suicidal thoughts,Psychiatrist
+homicidal thoughts,Psychiatrist
+self-harm behavior,Psychiatrist
+obsessive thoughts,Psychiatrist
+compulsive behaviors,Psychiatrist
+difficulty concentrating,Psychiatrist
+memory problems,Psychiatrist
+flashbacks,Psychiatrist
+nightmares,Psychiatrist
+emotional numbness,Psychiatrist
+anxiety attacks,Psychiatrist
+fear of leaving home,Psychiatrist
+severe mood swings,Psychiatrist
+eating disorders,Psychiatrist
+body image issues,Psychiatrist
+sexual dysfunction,Psychiatrist
+substance abuse,Psychiatrist
+alcohol dependence,Psychiatrist
+drug dependence,Psychiatrist
+chronic fatigue,Psychiatrist
+irrational fears,Psychiatrist
+chronic irritability,Psychiatrist
+anger outbursts,Psychiatrist
+unusual thoughts,Psychiatrist
+disorganized thinking,Psychiatrist
+mania,Psychiatrist
+hyperactivity,Psychiatrist
+loss of interest in activities,Psychiatrist
+feelings of guilt,Psychiatrist
+feelings of worthlessness,Psychiatrist
+hypervigilance,Psychiatrist
+trauma reactions,Psychiatrist
+grief,Psychiatrist
+bereavement,Psychiatrist
+relationship issues,Psychiatrist
+stress management issues,Psychiatrist
+workplace stress,Psychiatrist
+school stress,Psychiatrist
+chronic stress,Psychiatrist
+adjustment disorders,Psychiatrist
+
+cough,Pediatrician
+sore throat,Pediatrician
+ear pain,Pediatrician
+rash,Pediatrician
+vomiting,Pediatrician
+diarrhea,Pediatrician
+abdominal pain,Pediatrician
+poor appetite,Pediatrician
+weight loss,Pediatrician
+growth concerns,Pediatrician
+delayed milestones,Pediatrician
+irritability,Pediatrician
+frequent crying,Pediatrician
+breathing difficulties,Pediatrician
+wheezing,Pediatrician
+persistent crying,Pediatrician
+sleep disturbances,Pediatrician
+bedwetting,Pediatrician
+behavioral issues,Pediatrician
+hyperactivity,Pediatrician
+learning difficulties,Pediatrician
+speech delay,Pediatrician
+developmental delay,Pediatrician
+anemia,Pediatrician
+jaundice,Pediatrician
+skin infections,Pediatrician
+eye infections,Pediatrician
+ear infections,Pediatrician
+throat infections,Pediatrician
+common cold,Pediatrician
+flu,Pediatrician
+measles,Pediatrician
+mumps,Pediatrician
+chickenpox,Pediatrician
+whooping cough,Pediatrician
+asthma,Pediatrician
+eczema,Pediatrician
+insect bite reactions,Pediatrician
+growth disorders,Pediatrician
+puberty concerns,Pediatrician
+adolescent health issues,Pediatrician
+childhood obesity,Pediatrician
+nutritional deficiencies,Pediatrician
+vaccination follow-ups,Pediatrician
+minor injuries,Pediatrician
+burns,Pediatrician
+sports injuries,Pediatrician
+congenital conditions,Pediatrician
+genetic disorders,Pediatrician
+
+joint pain,Orthopedist
+back pain,Orthopedist
+neck pain,Orthopedist
+shoulder pain,Orthopedist
+knee pain,Orthopedist
+hip pain,Orthopedist
+elbow pain,Orthopedist
+wrist pain,Orthopedist
+ankle pain,Orthopedist
+foot pain,Orthopedist
+muscle pain,Orthopedist
+bone pain,Orthopedist
+joint stiffness,Orthopedist
+swelling in joints,Orthopedist
+reduced range of motion,Orthopedist
+joint instability,Orthopedist
+limping,Orthopedist
+deformity of limbs,Orthopedist
+fractures,Orthopedist
+dislocations,Orthopedist
+sprains,Orthopedist
+strains,Orthopedist
+ligament tears,Orthopedist
+tendon tears,Orthopedist
+cartilage damage,Orthopedist
+osteoporosis,Orthopedist
+arthritis,Orthopedist
+osteoarthritis,Orthopedist
+rheumatoid arthritis,Orthopedist
+scoliosis,Orthopedist
+kyphosis,Orthopedist
+lordosis,Orthopedist
+herniated disc,Orthopedist
+sciatica,Orthopedist
+bunions,Orthopedist
+plantar fasciitis,Orthopedist
+carpal tunnel syndrome,Orthopedist
+trigger finger,Orthopedist
+tennis elbow,Orthopedist
+golfer's elbow,Orthopedist
+rotator cuff injury,Orthopedist
+frozen shoulder,Orthopedist
+shin splints,Orthopedist
+stress fractures,Orthopedist
+torn meniscus,Orthopedist
+ACL injury,Orthopedist
+MCL injury,Orthopedist
+patellar tendinitis,Orthopedist
+Achilles tendinitis,Orthopedist
+bone spurs,Orthopedist
+muscle cramps,Orthopedist
+growth plate injuries,Orthopedist
+
+preoperative assessment,Anesthesiologist
+postoperative pain,Anesthesiologist
+acute pain management,Anesthesiologist
+regional anesthesia,Anesthesiologist
+epidural anesthesia,Anesthesiologist
+spinal anesthesia,Anesthesiologist
+general anesthesia,Anesthesiologist
+sedation,Anesthesiologist
+nerve block,Anesthesiologist
+local anesthesia,Anesthesiologist
+allergic reaction to anesthesia,Anesthesiologist
+anesthesia complications,Anesthesiologist
+difficult airway management,Anesthesiologist
+pre-surgical evaluation,Anesthesiologist
+anesthesia for cardiac surgery,Anesthesiologist
+anesthesia for neurosurgery,Anesthesiologist
+anesthesia for obstetrics,Anesthesiologist
+anesthesia for pediatrics,Anesthesiologist
+anesthesia for orthopedics,Anesthesiologist
+pain after surgery,Anesthesiologist
+labor pain,Anesthesiologist
+chronic back pain,Anesthesiologist
+chronic joint pain,Anesthesiologist
+fibromyalgia pain,Anesthesiologist
+complex regional pain syndrome,Anesthesiologist
+post-herpetic neuralgia,Anesthesiologist
+cancer pain,Anesthesiologist
+palliative pain management,Anesthesiologist
+postoperative nausea,Anesthesiologist
+postoperative vomiting,Anesthesiologist
+postoperative confusion,Anesthesiologist
+anesthetic drug interactions,Anesthesiologist
+monitoring during surgery,Anesthesiologist
+vital signs management,Anesthesiologist
+intravenous anesthesia,Anesthesiologist
+anesthetic risk assessment,Anesthesiologist
+breathing management during surgery,Anesthesiologist
+anesthetic emergency response,Anesthesiologist
+airway obstruction management,Anesthesiologist
+pain pump management,Anesthesiologist
+patient-controlled analgesia,Anesthesiologist
+epidural catheter placement,Anesthesiologist
+nerve catheter placement,Anesthesiologist
+pre-anesthesia medication management,Anesthesiologist
+anesthesia for gastrointestinal surgery,Anesthesiologist
+anesthesia for urological surgery,Anesthesiologist
+anesthesia for vascular surgery,Anesthesiologist
+anesthesia for thoracic surgery,Anesthesiologist
+anesthesia for plastic surgery,Anesthesiologist
+anesthesia for emergency surgery,Anesthesiologist
+
+unexplained weight loss,Oncologist
+persistent fatigue,Oncologist
+persistent cough,Oncologist
+blood in stool,Oncologist
+unexplained bruising,Oncologist
+lump or mass,Oncologist
+swollen lymph nodes,Oncologist
+difficulty swallowing,Oncologist
+changes in bowel habits,Oncologist
+changes in bladder habits,Oncologist
+persistent indigestion,Oncologist
+persistent nausea,Oncologist
+persistent vomiting,Oncologist
+persistent bloating,Oncologist
+skin changes,Oncologist
+non-healing sores,Oncologist
+unexplained fever,Oncologist
+night sweats,Oncologist
+unexplained pain,Oncologist
+loss of appetite,Oncologist
+difficulty breathing,Oncologist
+hoarseness,Oncologist
+persistent headaches,Oncologist
+seizures,Oncologist
+unexplained fractures,Oncologist
+persistent back pain,Oncologist
+unexplained rash,Oncologist
+persistent itching,Oncologist
+unusual bleeding gums,Oncologist
+chronic bone pain,Oncologist
+vision changes,Oncologist
+unusual fatigue,Oncologist
+anemia,Oncologist
+elevated white blood cell count,Oncologist
+recurrent infections,Oncologist
+swelling in the neck,Oncologist
+swelling in the face,Oncologist
+abdominal swelling,Oncologist
+pelvic pain,Oncologist
+breast changes,Oncologist
+nipple discharge,Oncologist
+unexplained skin lesions,Oncologist
+chronic cough,Oncologist
+unexplained joint pain,Oncologist
+unexplained muscle pain,Oncologist
+changes in moles,Oncologist
+new skin growths,Oncologist
+
+swelling in legs,Nephrologist
+swelling in ankles,Nephrologist
+swelling in feet,Nephrologist
+nausea,Nephrologist
+vomiting,Nephrologist
+loss of appetite,Nephrologist
+persistent itching,Nephrologist
+dry skin,Nephrologist
+foamy urine,Nephrologist
+dark urine,Nephrologist
+high blood pressure,Nephrologist
+muscle cramps,Nephrologist
+difficulty concentrating,Nephrologist
+trouble sleeping,Nephrologist
+restless legs,Nephrologist
+decreased urine output,Nephrologist
+kidney pain,Nephrologist
+flank pain,Nephrologist
+electrolyte imbalance,Nephrologist
+anemia,Nephrologist
+unexplained weight loss,Nephrologist
+edema,Nephrologist
+hyperkalemia,Nephrologist
+hyponatremia,Nephrologist
+bone pain,Nephrologist
+joint pain,Nephrologist
+calcium imbalance,Nephrologist
+chronic kidney disease,Nephrologist
+acute kidney injury,Nephrologist
+proteinuria,Nephrologist
+hematuria,Nephrologist
+nephrotic syndrome,Nephrologist
+glomerulonephritis,Nephrologist
+polycystic kidney disease,Nephrologist
+diabetic nephropathy,Nephrologist
+hypertensive nephropathy,Nephrologist
+kidney stones,Nephrologist
+urinary tract infections,Nephrologist
+renal cysts,Nephrologist
+end-stage renal disease,Nephrologist
+dialysis management,Nephrologist
+renal artery stenosis,Nephrologist
+renal vein thrombosis,Nephrologist
+lupus nephritis,Nephrologist
+amyloidosis,Nephrologist
+transplant evaluation,Nephrologist
+transplant follow-up,Nephrologist
+
+fever,GeneralPhysician
+cough,GeneralPhysician
+sore throat,GeneralPhysician
+nasal congestion,GeneralPhysician
+headache,GeneralPhysician
+body aches,GeneralPhysician
+chills,GeneralPhysician
+nausea,GeneralPhysician
+vomiting,GeneralPhysician
+diarrhea,GeneralPhysician
+abdominal pain,GeneralPhysician
+indigestion,GeneralPhysician
+heartburn,GeneralPhysician
+constipation,GeneralPhysician
+diarrhea,GeneralPhysician
+dehydration,GeneralPhysician
+dizziness,GeneralPhysician
+lightheadedness,GeneralPhysician
+fainting,GeneralPhysician
+wheezing,GeneralPhysician
+coughing up blood,GeneralPhysician
+joint pain,GeneralPhysician
+swollen joints,GeneralPhysician
+back pain,GeneralPhysician
+neck pain,GeneralPhysician
+muscle pain,GeneralPhysician
+muscle weakness,GeneralPhysician
+numbness or tingling,GeneralPhysician
+rash,GeneralPhysician
+itchy skin,GeneralPhysician
+redness or swelling of the skin,GeneralPhysician
+skin lesions,GeneralPhysician
+unexplained weight loss,GeneralPhysician
+excessive thirst,GeneralPhysician
+excessive hunger,GeneralPhysician
+urinary urgency,GeneralPhysician
+difficulty urinating,GeneralPhysician
+genital itching or discharge,GeneralPhysician
+sexual dysfunction,GeneralPhysician
+irregular menstrual cycles,GeneralPhysician
+infertility,GeneralPhysician
+others,GeneralPhysician
+
+

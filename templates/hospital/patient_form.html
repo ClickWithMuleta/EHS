@@ -1,0 +1,129 @@
+
+{% extends 'hospital/patient_base.html' %}
+{% load widget_tweaks %}
+{% load custom_filters %}
+{% block content %}
+{%load static%}
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+
+    .menu {
+      top: 50px;
+    }
+
+    button {
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    button:hover {
+      opacity: 0.8;
+    }
+
+
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    
+      .flex-item {
+        flex: 1;
+        padding: 10px;
+      }
+    
+      .symptom-item {
+        margin-bottom: 10px; /* Optional: adds space between rows */
+      }
+  </style>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function updateSelectedTests() {
+        const checkboxes = document.querySelectorAll('input[name="symptoms"]:checked');
+        const selectedTests = Array.from(checkboxes).map(cb => cb.value).join(', ');
+        document.getElementById('selectedsymptom').value = selectedTests;
+
+
+    }
+</script>
+ </head>
+<form method="post">
+  {% csrf_token %}
+
+  <div class="container register-form">
+    <div class="form">
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-12">
+          <center> <h3>Please select your symptoms</h3> </center> 
+             <div class="form-group" style=" width:fit-content">
+              {% render_field form.name class="form-control"  value=request.user.first_name placeholder="your name " %}
+            </div> 
+          
+            <div class="form-group flex-container">
+                {% with form.symptoms|split_into_columns:4 as columns %}
+                  {% for column in columns %}
+                    <div class="flex-item">
+                      {% for symptom in column %}
+                        <div class="symptom-item">
+                          {{ symptom }}
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                {% endwith %}
+              </div>
+            <input type="hidden" name="selectedsymptom" id="selectedsymptom" value="">
+            
+          </div>
+
+        </div>
+       <center> <button type="submit" class="btnSubmit">Find Doctor</button></center>
+       
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+{% endblock content %}

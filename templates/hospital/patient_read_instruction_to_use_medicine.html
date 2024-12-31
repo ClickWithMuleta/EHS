@@ -1,0 +1,71 @@
+{% extends 'hospital/patient_base.html' %}
+{% block content %}
+{%load static %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+    .vedchat ul {
+      list-style: none;
+      display: flex;
+      margin-left: 534px;
+
+    }
+    .vedchat ul li {
+
+      font-size: 0.95em;
+      font-weight: regular;
+      padding-left: 25px;
+      transition: all 0.15s linear;
+      cursor: pointer;
+    }
+  
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Your Instruction To Use Medicine </h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Your Doctor</th>
+          <th>Pharmacist Name</th>
+          <th>Medicine</th>
+          <th>Dosage</th>
+          <th>Number Of Days</th>
+          <th>Instruction From Pharmacist</th>
+        </tr>
+      </thead>
+      {% for r in readInstructions %}
+      <tr>
+        <td> {{r.doctorName}}</td>
+        <td>{{r.pharmacistName}}</td>
+        <td>{{r.medicine}}</td>
+        <td>{{r.dosage}}</td>
+        <td>{{r.numberOfDays}}</td>
+        <td>{{r.instruction}}</td>
+
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+
+{% endblock content %}

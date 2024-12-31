@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>EHS - Django</title>
+
+  <style type="text/css">
+
+
+    #bg{
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 100%;
+      }
+      
+  </style>
+  
+</head>
+<body id="bg" style="background-image: url('{% static "images/contact.jpg"%}');">
+
+  {% include "hospital/navbar.html" %}
+  <br><br><br><br><br><br>
+
+  <center>
+    <h3 >Send Us Your Valuable Feedback !</h3>
+
+    <form method="POST">
+      <!-- Very Important csrf Token -->
+      {% csrf_token %}
+      <div class="form-group">
+        <p>
+        <h3>{{ form.as_p }}</h3>
+        </p>
+        <br>
+        <input type="submit" value="Send Message" class='btn btn-primary btn-lg'>
+      </div>
+    </form>
+  </center>
+  <br><br><br>
+  {% include "hospital/footer2.html" %}
+</body>
+
+
+</html>

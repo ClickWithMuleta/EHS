@@ -1,0 +1,58 @@
+{% extends 'hospital/doctor_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Your Scheduling Time</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+
+      {% for sd in schedule %}
+      <tr>
+        <td></td><td> </td><td></td><td></td><td></td>
+
+        <td>
+            <h4 style="text-align:center; font-size: 20px; background-color:#0d85b0; color:white; width:30%;">Morning</h4>
+            {{sd.morning_1}}  {{sd.morning_2}}  {{sd.morning_3}} 
+                    <br><br>
+            <h4 style="text-align:center; font-size: 20px; background-color:#0d85b0; color:white; width:30%;">Afternoon</h4>
+            {{sd.afternoon_1}}  {{sd.afternoon_2}}  {{sd.afternoon_3}} 
+                    <br><br>
+            <h4 style="text-align:center; font-size: 20px; background-color:#0d85b0; color:white; width:30%;">Evening</h4>
+            {{sd.evening_1}}  {{sd.evening_2}}  {{sd.evening_3}} 
+
+
+
+        </td>
+
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+
+{% endblock content %}

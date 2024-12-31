@@ -1,0 +1,75 @@
+{% extends 'hospital/homebase.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<head>
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      background-image: url('{% static "images/back.jpg" %}');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .jumbotron h5,
+    h3 {
+      text-align: center;
+    }
+
+
+    .alert {
+      margin: 0px;
+    }
+
+
+
+    .glow {
+      font-size: 50px;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      -webkit-animation: glow 1s ease-in-out infinite alternate;
+      -moz-animation: glow 1s ease-in-out infinite alternate;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+      }
+
+      to {
+        text-shadow: 0 0 20px #eeeeee, 0 0 30px #fa2d2d, 0 0 40px #fa2d2d, 0 0 50px #fa2d2d, 0 0 60px #fa2d2d, 0 0 70px #fa2d2d, 0 0 80px #fa2d2d;
+      }
+    }
+  </style>
+</head>
+
+<div class="jumbotron" style="margin-bottom: 0px;margin-top: 0px;">
+{% for message in messages %}
+ <div style="background-color: lightseagreen; width:fit-content; font-size:18px;">{{message}}</div>
+{% endfor %}
+
+<br><br>
+  <h5 class="display-4 glow"> E-Hospital For Harar City,You’ll Love It!</h5>
+ <br>
+
+  <center>
+    <a class="btn btn-danger btn-lg" href="/patientsignup" role="button">Take Appointment Now!</a>
+  </center>
+  <br><br> <br><br> <br><br><br>
+</div>
+
+<br><br>
+
+{% include "hospital/home_card_view.html" %}
+
+
+<br><br><br>
+
+
+{% endblock content %}

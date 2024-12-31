@@ -1,0 +1,429 @@
+
+<!DOCTYPE html> 
+{% load static %}
+{% include "hospital/navbar.html" %}
+
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content= 
+		"width=device-width, initial-scale=1.0"> 
+	<title>EHS</title> 
+<style>
+/* style.css */
+body { 
+	font-family: Arial, sans-serif; 
+} 
+
+.container { 
+	max-width: 1200px; 
+	margin: 0 auto; 
+	padding: 20px; 
+} 
+
+.pagination { 
+	text-align: center; 
+	margin-top: 2rem; 
+} 
+
+.pagination a { 
+	color: #007BFF; 
+	padding: 8px 16px; 
+	text-decoration: none; 
+	border: 1px solid #007BFF; 
+	margin: 0 5px; 
+	border-radius: 4px; 
+} 
+
+.pagination a:hover { 
+	background-color: #007BFF; 
+	color: white; 
+} 
+
+.pagination .active { 
+	background-color: #007BFF; 
+	color: white; 
+} 
+
+.card-container { 
+	display: grid; 
+	grid-template-columns: repeat(4, 1fr); 
+	gap: 20px; 
+} 
+
+.card { 
+	border: 1px solid #ddd; 
+	padding: 20px; 
+	border-radius: 10px; 
+	box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.1); 
+	background-color: #fff; 
+	text-align: center; 
+} 
+
+.card img { 
+	max-width: 100%; 
+	height: auto; 
+	margin-bottom: 10px; 
+	border-radius: 10px; 
+} 
+
+h3 { 
+	margin-top: 10px; 
+	font-size: 18px; 
+	text-transform: capitalize; 
+} 
+
+h1 { 
+	text-align: center; 
+	margin: 2rem; 
+} 
+
+p { 
+	font-size: 14px; 
+} 
+
+#page-numbers { 
+	margin-top: 20px; 
+	font-size: 16px; 
+}
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+
+    .title {
+      color: grey;
+      font-size: 18px;
+    }
+
+    button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    button:hover,
+    a:hover {
+      opacity: 0.7;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      padding: 10px;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a {
+      color: white;
+    }
+
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+</style>
+</head> 
+
+<body> 
+
+  <center><h1 style="color: darkturquoise;">Top Doctors With Their Experience and Specilazation.</h1></center>
+
+  <div class="grid-container">
+  
+    {% for d in doctors %}
+    {% if d.expriance >= 5 %}
+    <div class="grid-item">
+      <div class="card" style="height:510px">
+        
+        <center><img src="{% static d.profile_pic.url %}" alt="Profile Pic"  width="50%" /></p>  </center>
+        <p> <strong>Name : Dr. </strong> {{d.get_name}}</p>  
+        <p><strong>Specilazation :  </strong>   {{d.department}}</p> 
+        <p><strong>Experience :  </strong>    {{d.expriance}} yrs</p>
+        {% if d.admitDate == d.todayDate %}
+            <p>  <span style="color: rgb(28, 17, 17); font-size:19px;"> Likes (0%) </span></p> 
+            <p> <span style="color: rgb(7, 7, 20); font-size:19px;"> Votes (0) </span></p>        
+            {%else%}
+             {% if d.expriance > 5 %}
+                <p>  <span style="color: rgb(28, 17, 17); font-size:19px;"> Likes (80%) </span></p> 
+                <p> <span style="color: rgb(7, 7, 20); font-size:19px;"> Votes (70) </span></p>
+              {%else%}
+                <p>  <span style="color: rgb(28, 17, 17); font-size:19px;"> Likes (45%) </span></p> 
+                <p> <span style="color: rgb(7, 7, 20); font-size:19px;"> Votes (30) </span></p>            
+                {%endif%}
+         {%endif%}
+
+        <center> <a href="/login"><button  style="width:auto; background:04AA6D">Book</button> </a> </center>
+  
+      <br><br>
+      </div>
+    <br><br>
+    </div>
+    {% endif %}
+    {% endfor %}  
+  </div>
+  <br>
+  <center><h1 style="color: rgb(238, 14, 230);">Registered Hospitals.</h1></center>
+
+	<div id="data-container"> 
+ 
+		<div class="card-container"> 
+      {% for h in hospitals %}
+			<div class="card" style="width: 360px; height:420px; margin-left:80px;"> 
+        <center><img src="{% static h.hospital_pic.url %}" alt="hospital Pic"  width="60%" /></p>  </center>
+               <div>
+                <p> <strong>Hospital Name : </strong>{{h.hospitalName}}</p> 
+                <p><strong>Location :  </strong>   {{h.address}}</p> 
+                <p><strong>Email :  </strong>    {{h.email}} </p>
+                <center> <a href="{% url 'hospital-detail-view' h.id %}"><button  style="width:auto; background:#007BFF">More</button> </a> </center>
+           
+               </div>
+ 
+			</div> 
+      {% endfor %}
+			<!-- Add more cards as needed -->
+		</div> 
+   
+	</div> 
+  <br>
+<center>
+	<div class="pagination" id="pagination" style="margin-left: 456px;"> 
+		<a href="#" id="prev"><</a> 
+		<a href="#" class="page-link" data-page="1">1</a> 
+		<a href="#" class="page-link" data-page="2">2</a> 
+		<a href="#" class="page-link" data-page="3">3</a> 
+		<a href="#" id="next">></a> 
+		<p id="page-numbers"> </p> 
+	</div> 
+</center>
+<script>
+
+//script.js 
+const cardsPerPage = 3; // Number of cards to show per page 
+const dataContainer = document.getElementById('data-container'); 
+const pagination = document.getElementById('pagination'); 
+const prevButton = document.getElementById('prev'); 
+const nextButton = document.getElementById('next'); 
+const pageNumbers = document.getElementById('page-numbers'); 
+const pageLinks = document.querySelectorAll('.page-link'); 
+  
+const cards =  
+    Array.from(dataContainer.getElementsByClassName('card')); 
+  
+// Calculate the total number of pages 
+const totalPages = Math.ceil(cards.length / cardsPerPage); 
+let currentPage = 1; 
+  
+// Function to display cards for a specific page 
+function displayPage(page) { 
+    const startIndex = (page - 1) * cardsPerPage; 
+    const endIndex = startIndex + cardsPerPage; 
+    cards.forEach((card, index) => { 
+        if (index >= startIndex && index < endIndex) { 
+            card.style.display = 'block'; 
+        } else { 
+            card.style.display = 'none'; 
+        } 
+    }); 
+} 
+  
+// Function to update pagination buttons and page numbers 
+function updatePagination() { 
+    pageNumbers.textContent =  
+        `Page ${currentPage} of ${totalPages}`; 
+    prevButton.disabled = currentPage === 1; 
+    nextButton.disabled = currentPage === totalPages; 
+    pageLinks.forEach((link) => { 
+        const page = parseInt(link.getAttribute('data-page')); 
+        link.classList.toggle('active', page === currentPage); 
+    }); 
+} 
+  
+// Event listener for "Previous" button 
+prevButton.addEventListener('click', () => { 
+    if (currentPage > 1) { 
+        currentPage--; 
+        displayPage(currentPage); 
+        updatePagination(); 
+    } 
+}); 
+  
+// Event listener for "Next" button 
+nextButton.addEventListener('click', () => { 
+    if (currentPage < totalPages) { 
+        currentPage++; 
+        displayPage(currentPage); 
+        updatePagination(); 
+    } 
+}); 
+  
+// Event listener for page number buttons 
+pageLinks.forEach((link) => { 
+    link.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        const page = parseInt(link.getAttribute('data-page')); 
+        if (page !== currentPage) { 
+            currentPage = page; 
+            displayPage(currentPage); 
+            updatePagination(); 
+        } 
+    }); 
+}); 
+  
+// Initial page load 
+displayPage(currentPage); 
+updatePagination();
+ </script> 
+
+
+</body> 
+
+</html>
+
+

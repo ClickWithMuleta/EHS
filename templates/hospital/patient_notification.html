@@ -1,0 +1,58 @@
+{% extends 'hospital/patient_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div>
+  {% if  labPaymentRequest  or medicinePaymentRequest or announcementFromDoctor %}
+  <center>  <h2 style="background-color: blueviolet; color:white"> Notification</h2></center>
+ 
+  {% if  labPaymentRequest %}
+  <center>  <h2> LabTech is <span style="color: dodgerblue;">waiting...</span> for your payment to start your lab request.</h2></center>    
+  </div>
+  <div style="width: 100%;">____________________________________________________________________________________________________________________________</div>       
+
+{% endif %}
+
+{% if  medicinePaymentRequest %}
+<center>  <h2> Pharmasict is <span style="color: dodgerblue;">waiting...</span> for your payment.</h2></center> 
+<div style="width: 100%;">____________________________________________________________________________________________________________________________</div>       
+{% endif %}
+
+{% if  announcementFromDoctor %}
+<center>  <h2>  <span style="color: dodgerblue;">Announcement From Doctor.</span></h2></center>    
+{% for a in announcementFromDoctor %}
+<div style="width: 100%;">____________________________________________________________________________________________________________________________</div>       
+
+<p>Dr. <strong>{{a.doctorName}} </strong>  sent you notification <strong>{{a.message}} </strong>,    {{a.date}} </p>
+
+{% endfor %}
+
+{% endif %}
+
+
+{% else %}
+<center>  <h2> There is no Notifications</h2></center>
+
+{% endif %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock content %}

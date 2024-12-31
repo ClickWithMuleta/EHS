@@ -1,0 +1,289 @@
+{% extends 'hospital/patient_base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+  <meta charset="utf-8">
+  <title>A simple, clean, and responsive HTML invoice template</title>
+
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap'); 
+    .invoice-box {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+      font-size: 16px;
+      line-height: 24px;
+      font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+      color: #555;
+    }
+
+    .invoice-box table {
+      width: 100%;
+      line-height: inherit;
+      text-align: left;
+    }
+
+    .invoice-box table td {
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    .invoice-box table tr td:nth-child(2) {
+      text-align: right;
+    }
+
+    .invoice-box table tr.top table td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.top table td.title {
+      font-size: 45px;
+      line-height: 45px;
+      color: #333;
+    }
+
+    .invoice-box table tr.information table td {
+      padding-bottom: 40px;
+    }
+
+    .invoice-box table tr.heading td {
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-weight: bold;
+    }
+
+    .invoice-box table tr.details td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.item td {
+      border-bottom: 1px solid #eee;
+    }
+
+    .invoice-box table tr.item.last td {
+      border-bottom: none;
+    }
+
+    .invoice-box table tr.total td:nth-child(2) {
+      border-top: 2px solid #eee;
+      font-weight: bold;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+
+      .invoice-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+    }
+
+    /** RTL **/
+    .rtl {
+      direction: rtl;
+      font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+
+    .rtl table {
+      text-align: right;
+    }
+
+    .rtl table tr td:nth-child(2) {
+      text-align: left;
+    }
+
+    .menu {
+      top: 50px;
+    }
+
+    .paymnt ul {
+      list-style: none;
+      display: flex;
+  
+    }
+    .paymnt ul li {
+  
+      font-size: 0.95em;
+      font-weight: regular;
+      transition: all 0.15s linear;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      border: none; 
+      outline: none; 
+      font-family: 'Poppins', sans-serif; 
+      text-transform: capitalize; 
+      transition: all 0.2s linear; 
+    } 
+    
+    
+    
+    .col .title { 
+      font-size: 20px; 
+      color: rgb(237, 55, 23); 
+      padding-bottom: 5px; 
+    } 
+    
+    .col .inputBox { 
+      margin: 15px 0; 
+    } 
+    
+    .col .inputBox label { 
+      margin-bottom: 10px; 
+      display: block; 
+    } 
+    
+    .col .inputBox input, 
+    .col .inputBox select { 
+      width: 100%; 
+      border: 1px solid #ccc; 
+      padding: 10px 15px; 
+      font-size: 15px; 
+    } 
+    
+    .col .inputBox input:focus, 
+    .col .inputBox select:focus { 
+      border: 1px solid #000; 
+    } 
+    
+    .col .flex { 
+      display: flex; 
+      gap: 15px; 
+    } 
+    
+    .col .flex .inputBox { 
+      flex: 1 1; 
+      margin-top: 5px; 
+    } 
+    
+    .col .inputBox img { 
+      height: 34px; 
+      margin-top: 5px; 
+      filter: drop-shadow(0 0 1px #000); 
+    } 
+    
+    #btn { 
+      width: 100%; 
+      padding: 12px; 
+      font-size: 17px; 
+      background: rgb(1, 143, 34); 
+      color: #fff; 
+      margin-top: 5px; 
+      cursor: pointer; 
+      letter-spacing: 1px; 
+    } 
+    
+    #btn:hover { 
+      background: #3d17fb; 
+    } 
+    
+    input::-webkit-inner-spin-button, 
+    input::-webkit-outer-spin-button { 
+      display: none; 
+    }
+  </style>
+</head>
+<body>
+  
+
+<br><br><br>
+<div class="invoice-box">
+  <table cellpadding="0" cellspacing="0">
+    <tr class="top">
+      <div class="row"> 
+      <div class="col"> 
+        <form method="POST" action="https://api.chapa.co/v1/hosted/pay">
+            {% csrf_token %}
+          <div class="inputBox"> 
+            <h3 class="title">Payment Billing Address</h3> 
+          </div> 
+          <input type="hidden" name="public_key" value="CHAPUBK_TEST-Xp4EuVUdbRpcalVy4PsnRrhdneSY8bix" />
+          <input type="hidden" name="tx_ref" value="{{tx_ref}}"/>   
+          <input type="hidden" name="currency" value="ETB" />
+          <input type="hidden" name="title" value="Let us do this" />
+          <input type="hidden" name="description" value="Paying with Confidence with chapa" />
+          <input type="hidden" name="logo" value="https://chapa.link/asset/images/chapa_swirl.svg" />
+          <input type="hidden" name="callback_url" value="http://127.0.0.1:8000/labtech-notification" />
+          <input type="hidden" name="return_url" value="http://127.0.0.1:8000/patient-laboratory-test-payment-success" />
+          <input type="hidden" name="meta[title]" value="test" />
+        <div class="inputBox"> 
+          <br>
+          <label for="name"> 
+            First Name: 
+          </label> 
+          <input type="text" id="name" name="first_name" value=""
+            placeholder="Enter your first name"
+            required> 
+        </div> 
+
+        <div class="inputBox"> 
+          <label for="email"> 
+            Email: 
+          </label> 
+          <input type="text" id="email" name="email" value=""
+            placeholder="Enter your email "
+            required> 
+        </div> 
+      </div> 
+
+      <div class="col"> 
+
+        <div class="paymnt"> 
+        <ul>
+                      <li><a href=""><img src="{% static "images/chapa.jpg" %}" alt="chapa Pic" height="50px" width="50px"  /></a></li>
+                      <li><a href=""><img src="{% static "images/paypal.png" %}" alt="paypal Pic" height="50px" width="50px"  /></a></li>
+                      <li><a href=""><img src="{% static "images/mastercard.jpg" %}" alt="mastercard Pic" height="50px" width="50px"  /></a></li>
+                      <li><a href=""><img src="{% static "images/visacard.png" %}" alt="visacard Pic" height="50px" width="50px"  /></a></li>
+
+                  
+                  </ul>
+
+        </div> 
+
+        <div class="inputBox"> 
+            <label for="name"> 
+              Last Name: 
+            </label> 
+            <input type="text" id="name" name="last_name" value=""
+              placeholder="Enter your last name"
+              required> 
+          </div> 
+        <div class="flex">
+        <div class="inputBox"> 
+          <label for="costprice"> 
+            Amount: 
+          </label> 
+          <input type="text" id="amount" name="amount" value="{{amount}}"
+            placeholder="Enter Amount" readonly
+            required> 
+        </div> 
+      </div>
+      </div> 
+      </div>
+      
+    </tr>
+  
+    <input type="submit" value="Pay Now"
+    id="btn"> 
+    </form>
+  </table>
+</div>
+
+</body>
+
+{% endblock content %}
+

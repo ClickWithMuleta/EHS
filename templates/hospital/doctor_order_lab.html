@@ -1,0 +1,207 @@
+{% extends 'hospital/doctor_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+
+    .menu {
+      top: 50px;
+    }
+  </style>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function updateSelectedTests() {
+        const checkboxes = document.querySelectorAll('input[name="tests"]:checked');
+        const selectedTests = Array.from(checkboxes).map(cb => cb.value).join(', ');
+        document.getElementById('selectedlabtest').value = selectedTests;
+
+        // Calculate the total amount
+        let totalAmount = 0;
+        checkboxes.forEach(cb => {
+            const amountField = cb.nextElementSibling; // get the next input field which is the amount
+            totalAmount += parseFloat(amountField.value);
+        });
+        document.getElementById('totalAmount').value = totalAmount;
+    }
+</script>
+</head>
+<br>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container register-form">
+    <div class="form">
+      <div class="note">
+        <p>Order Lab Details </p>
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-6">
+
+            <h4>Laboratory Test List</h4>
+            <label>
+              <input type="checkbox" name="tests"  value="Stool" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="70" readonly>
+              Stool
+          </label><br>
+              <label>
+                <input type="checkbox" name="tests" value="Urine" onclick="updateSelectedTests()">
+                <input type="hidden" name="amount" value="200" readonly>
+                Urine
+            </label><br>
+                <label>
+                  <input type="checkbox" name="tests" value="Blood Test" onclick="updateSelectedTests()">
+                  <input type="hidden" name="amount" value="100" readonly>
+                  Blood Test
+              </label><br>
+
+              <label>
+                <input type="checkbox" name="tests" value=" X-Ray" onclick="updateSelectedTests()">
+                <input type="hidden" name="amount" value="700" readonly>
+                X-Ray
+            </label><br>
+            <label>
+              <input type="checkbox" name="tests" value=" MRI Scan" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="1200" readonly>
+              MRI Scan
+          </label><br>
+          <label>
+            <input type="checkbox" name="tests" value=" Ultrasound" onclick="updateSelectedTests()">
+            <input type="hidden" name="amount" value="300" readonly>
+            Ultrasound
+        </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Basic Metabolic Panel (BMP)" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="150" readonly>
+               BMP
+          </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Comprehensive Metabolic Panel (CMP)" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="120" readonly>
+               CMP
+          </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Lipid Panel" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="110" readonly>
+              Lipid Panel
+          </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Liver Function Tests (LFTs)" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="90" readonly>
+               LFTs
+          </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Thyroid Stimulating Hormone (TSH)" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="80" readonly>
+             TSH
+          </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Hemoglobin A1c" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="130" readonly>
+              Hemoglobin A1c
+          </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Prothrombin Time (PT/INR)" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="160" readonly>
+               PT/INR
+          </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Electrolyte Panel" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="500" readonly>
+              Electrolyte Panel
+          </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Vitamin D" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="300" readonly>
+              Vitamin D
+          </label><br>
+          <label>
+              <input type="checkbox" name="tests" value="Iron Studies" onclick="updateSelectedTests()">
+              <input type="hidden" name="amount" value="400" readonly>
+              Iron Studies
+          </label><br>
+          <input type="hidden" name="selectedlabtest" id="selectedlabtest" value=""> <br><br>
+          <input type="hidden" name="amount" id="totalAmount" value="" readonly>
+          </div>
+
+          <div class="col-md-6">
+
+            <input type="text" name="labTechName" class="form-control" id="labTechId" placeholder="labTech Name" readonly> <br>
+            <input type="date" name="orderDate" class="form-control" id="orderDate" placeholder="orderDate" required> <br>
+            <input type="text" name="patientName" class="form-control" id="patientName"placeholder="Patient Name" required value=""> <br><br>
+
+            <center><button type="submit" class="btnSubmit">Submit</button></center> 
+
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+
+</form>
+<script>
+  // List of names
+  const namelist = ['Naol','sifan'];
+
+  // Function to choose a random name from the list
+  function chooseRandomName() {
+      const randomIndex = Math.floor(Math.random() * namelist.length);
+      return namelist[randomIndex];
+  }
+
+  // Set the value of the input field to a random name
+  document.getElementById('labTechId').value = chooseRandomName();
+
+        // Function to get today's date in the format YYYY-MM-DD
+        function getTodayDate() {
+          const today = new Date();
+          const year = today.getFullYear();
+          const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+          const day = String(today.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+      }
+
+      // Set the minimum value and the value of the date input field to today's date
+      const todayDate = getTodayDate();
+      const orderDateInput = document.getElementById('orderDate');
+      orderDateInput.min = todayDate;
+      orderDateInput.value = todayDate;
+
+</script>
+{% endblock content %}

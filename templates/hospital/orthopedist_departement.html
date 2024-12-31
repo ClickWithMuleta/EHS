@@ -1,0 +1,236 @@
+
+<!DOCTYPE html> 
+{% load static %}
+{% include "hospital/navbar.html" %}
+
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content= 
+		"width=device-width, initial-scale=1.0"> 
+	<title>doctor_departement</title> 
+<style>
+/* style.css */
+body { 
+	font-family: Arial, sans-serif; 
+} 
+
+.container { 
+	max-width: 1200px; 
+	margin: 0 auto; 
+	padding: 20px; 
+} 
+
+.pagination { 
+	text-align: center; 
+	margin-top: 2rem; 
+} 
+
+.pagination a { 
+	color: #007BFF; 
+	padding: 8px 16px; 
+	text-decoration: none; 
+	border: 1px solid #007BFF; 
+	margin: 0 5px; 
+	border-radius: 4px; 
+} 
+
+.pagination a:hover { 
+	background-color: #007BFF; 
+	color: white; 
+} 
+
+.pagination .active { 
+	background-color: #007BFF; 
+	color: white; 
+} 
+
+.card-container { 
+	display: grid; 
+	grid-template-columns: repeat(4, 1fr); 
+	gap: 20px; 
+} 
+
+.card { 
+	border: 1px solid #ddd; 
+	padding: 20px; 
+	border-radius: 10px; 
+	box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.1); 
+	background-color: #fff; 
+	text-align: center;
+  margin-left: 80px; 
+} 
+
+.card img { 
+	max-width: 100%; 
+	height: auto; 
+	margin-bottom: 10px; 
+	border-radius: 10px; 
+} 
+
+h3 { 
+	margin-top: 10px; 
+	font-size: 18px; 
+	text-transform: capitalize; 
+} 
+
+h1 { 
+	text-align: center; 
+	margin: 2rem; 
+} 
+
+p { 
+	font-size: 14px; 
+} 
+
+#page-numbers { 
+	margin-top: 20px; 
+	font-size: 16px; 
+}
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+</style>
+</head> 
+
+<body> 
+  <br><br>
+  <center><h1 style="color: rgb(238, 14, 230);">List Of all Orthopedist_departement Doctors.</h1></center>
+
+	<div id="data-container"> 
+ 
+		<div class="card-container"> 
+      {% for o in orthopedists %}
+			<div class="card" style="width: 300px; height:500px; margin-left:80px;"> 
+        <center><img src="{% static o.profile_pic.url %}" alt="hospital Pic" height="50px" width="120px" /></p>  </center>
+               <div>
+                <p> <strong>Name : Dr. </strong> {{o.get_name}}</p>  
+                <p><strong>Specilazation :  </strong>   {{o.department}}</p> 
+                <p><strong>Experience :  </strong>    {{o.expriance}} yrs</p>
+                {% if o.admitDate == o.todayDate %}
+                <p>  <span style="color: rgb(28, 17, 17); font-size:19px;"> Likes (0%) </span></p> 
+                <p> <span style="color: rgb(7, 7, 20); font-size:19px;"> Votes (0) </span></p>        
+                {%else%}
+                 {% if o.expriance > 5 %}
+                    <p>  <span style="color: rgb(28, 17, 17); font-size:19px;"> Likes (99%) </span></p> 
+                    <p> <span style="color: rgb(7, 7, 20); font-size:19px;"> Votes (7000) </span></p>
+                  {%else%}
+                    <p>  <span style="color: rgb(28, 17, 17); font-size:19px;"> Likes (50%) </span></p> 
+                    <p> <span style="color: rgb(7, 7, 20); font-size:19px;"> Votes (3000) </span></p>            
+                    {%endif%}
+             {%endif%}
+                   </div>
+               <center> <a href="/login"><button  style="width:auto; background:rgb(100, 84, 238)">Book</button> </a> </center>
+ 
+			</div> 
+      {% endfor %}
+			<!-- Add more cards as needed -->
+		</div> 
+   
+	</div>
+<center>
+	<div class="pagination" id="pagination" style="margin-left: 456px;"> 
+		<a href="#" id="prev"><</a> 
+		<a href="#" class="page-link" data-page="1">1</a> 
+		<a href="#" class="page-link" data-page="2">2</a> 
+		<a href="#" class="page-link" data-page="3">3</a> 
+		<a href="#" id="next">></a> 
+		<p id="page-numbers"> </p> 
+	</div> 
+</center>
+<script>
+
+//script.js 
+const cardsPerPage = 3; // Number of cards to show per page 
+const dataContainer = document.getElementById('data-container'); 
+const pagination = document.getElementById('pagination'); 
+const prevButton = document.getElementById('prev'); 
+const nextButton = document.getElementById('next'); 
+const pageNumbers = document.getElementById('page-numbers'); 
+const pageLinks = document.querySelectorAll('.page-link'); 
+  
+const cards =  
+    Array.from(dataContainer.getElementsByClassName('card')); 
+  
+// Calculate the total number of pages 
+const totalPages = Math.ceil(cards.length / cardsPerPage); 
+let currentPage = 1; 
+  
+// Function to display cards for a specific page 
+function displayPage(page) { 
+    const startIndex = (page - 1) * cardsPerPage; 
+    const endIndex = startIndex + cardsPerPage; 
+    cards.forEach((card, index) => { 
+        if (index >= startIndex && index < endIndex) { 
+            card.style.display = 'block'; 
+        } else { 
+            card.style.display = 'none'; 
+        } 
+    }); 
+} 
+  
+// Function to update pagination buttons and page numbers 
+function updatePagination() { 
+    pageNumbers.textContent =  
+        `Page ${currentPage} of ${totalPages}`; 
+    prevButton.disabled = currentPage === 1; 
+    nextButton.disabled = currentPage === totalPages; 
+    pageLinks.forEach((link) => { 
+        const page = parseInt(link.getAttribute('data-page')); 
+        link.classList.toggle('active', page === currentPage); 
+    }); 
+} 
+  
+// Event listener for "Previous" button 
+prevButton.addEventListener('click', () => { 
+    if (currentPage > 1) { 
+        currentPage--; 
+        displayPage(currentPage); 
+        updatePagination(); 
+    } 
+}); 
+  
+// Event listener for "Next" button 
+nextButton.addEventListener('click', () => { 
+    if (currentPage < totalPages) { 
+        currentPage++; 
+        displayPage(currentPage); 
+        updatePagination(); 
+    } 
+}); 
+  
+// Event listener for page number buttons 
+pageLinks.forEach((link) => { 
+    link.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        const page = parseInt(link.getAttribute('data-page')); 
+        if (page !== currentPage) { 
+            currentPage = page; 
+            displayPage(currentPage); 
+            updatePagination(); 
+        } 
+    }); 
+}); 
+  
+// Initial page load 
+displayPage(currentPage); 
+updatePagination();
+ </script> 
+<br><br><br>
+ {% include "hospital/footer2.html" %}
+
+</body> 
+
+</html>

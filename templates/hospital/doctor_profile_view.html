@@ -1,0 +1,62 @@
+{% extends 'hospital/doctor_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+p{
+    font-size: 18px;
+    text-align:start;
+    margin-left: 434px;
+
+}
+  
+  </style>
+</head>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading" style="background-color: white">
+      <h4  style="color: black; text-align:center">Your Profile</h4>
+    </div>
+             
+  {% for dp in doctorProfile %}  <br>
+    <img src="{% static dp.profile_pic.url %}" alt="Profile Pic"  style="margin-left: 239px;" width="140px" />
+    <p  style="margin-left: 243px; margin-top:12px; background-color: rgb(6, 126, 114); width:fit-content; color:white"> <strong> profile picture</strong>  </p>
+     <p> <strong> Frist Name : </strong> {{dp.user.first_name}}</p>  
+      <p><strong>  Last Name:  </strong> {{dp.user.last_name}}</p>
+      <p> <strong> Username : </strong> {{dp.user.username}}</p>  
+      <p> <strong> Email : </strong> {{dp.email}}</p>  
+      <p> <strong> Phone : </strong> {{dp.mobile}}</p>  
+      <p> <strong> Address : </strong> {{dp.address}}</p>  
+      <p> <strong> Specialization : </strong> {{dp.department}}</p>  
+      <p> <strong> Expriance : </strong> {{dp.expriance}}</p>  
+      <p> <strong> Working Hospital : </strong> {{dp.hospital_name}}</p>  
+      <p> <strong> Your certificate : </strong> 
+        {% if dp.certification %}
+        <img src="{% static dp.certification.url %}" alt="certificate Pic"  width="130px" />
+      {% else %}
+        No certification available
+      {% endif %}</p>  
+
+      {% endfor %}
+
+  </div>
+</div>
+
+
+{% endblock content %}

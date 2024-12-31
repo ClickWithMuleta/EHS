@@ -1,0 +1,35 @@
+{% extends 'hospital/pharmacist_base.html' %}
+{% load static %}
+{% block content %}
+{%include 'hospital/pharmacist_dashboard_cards.html'%}
+<br><br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-primary" style="margin-left:2%;">
+      <div class="panel-heading" style="text-align:center;">
+        <h6 class="panel-title">Recentely Added Medicines </h6>
+      </div>
+      <table class="table table-hover table-striped" id="dev-table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Medicine Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        {% for m in medicines %}
+        <tr>
+          <td>{{m.medicineName}}</td>
+          <td>{{m.quantity}}</td>
+          <td>{{m.price}}</td>
+          <td>{{m.Date}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

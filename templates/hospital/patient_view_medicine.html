@@ -1,0 +1,63 @@
+{% extends 'hospital/patient_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Your Payement Request from Pharmacist</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Pharmacist Name</th>
+          <th>Hospital Name</th>
+          <th>Ordering Doctor</th>
+          <th>Medicine</th>
+          <th>Dosage</th>
+          <th>Number Of Days</th>
+          <th>Medicine Price</th>
+          <th>Description</th>
+          <th><span style="color:rgb(237, 7, 202); font-size:18px;">Pay</span></th>
+
+
+        </tr>
+      </thead>
+      {% for p in paymentRequests %}
+      <tr>
+        <td>{{p.pharmacistName}}</td>
+        <td>{{p.hospitalName}}</td>
+        <td>{{p.doctorName}}</td>
+        <td>{{p.medicine}}</td>
+        <td>{{p.dosage}}</td>
+        <td>{{p.numberOfDays}}</td>
+        <td><span style="color:rgb(244, 12, 51); font-size:15px;  ">{{p.medicinePrice}}.00 ETB</span></td>
+        <td>{{p.description}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'patient-medicine-payment-processing' p.id  %}" ><span style="color: rgb(245, 237, 13); font-size:16px;">Checkout</span></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

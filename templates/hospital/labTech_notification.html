@@ -1,0 +1,57 @@
+{% extends 'hospital/labTech_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+    p{
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<div>
+  {% if  labOrdercount or patientPayementSuccesscount %}
+
+  {% if  labOrdercount %}
+  <center>  <h2 style="background-color: blueviolet; color:white">This is laborder for you from doctors.</h2></center>
+  
+  {% for l in laborders %}
+  <p> <strong>Patient Name : </strong> {{l.patientName}}</p>  
+  <p> <strong>Ordering Doctor : </strong> {{l.doctorName}}</p>  
+  <div style="width: 100%;">____________________________________________________________________________________________________________________________</div>       
+
+  {% endfor %}
+  {% endif %}
+  {% if  patientPayementSuccesscount %}
+  <center>  <h2 style="background-color: rgb(11, 148, 234); color:white"> Please give the lab test result for this patient.</h2></center>
+             
+  {% for pps in patientPayementSuccess %}
+      <p> <strong>Patient Name : </strong> {{pps.patientName}}</p>  
+      <p> <strong>Payment Status: </strong> <span style="color: rgb(11, 42, 245);">Success!</span></p>  
+      <div style="width: 100%;">____________________________________________________________________________________________________________________________</div>       
+
+      {% endfor %}
+
+  {% endif %}
+{% else %}
+<center>  <h2> There is no Notifications</h2></center>
+
+{% endif %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock content %}

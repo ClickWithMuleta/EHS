@@ -1,0 +1,149 @@
+{% extends 'hospital/admin_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+
+    .menu {
+      top: 50px;
+    }
+  </style>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<br><br>
+<!-- schedule_form.html -->
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container register-form">
+      <div class="form">
+        <div class="note">
+          <p>Scheduling Doctor Details</p>
+        </div>
+        <div class="form-content">
+          <div class="row">
+            <div>
+                <table>
+              <div class="form-group">
+                {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+                 <tr><th><h4>Morning</h4> </th></tr>
+                <tr>
+                    <th> <input type="text" name="morning_1"  class="form-control" placeholder='2:30 am' ></th>
+                    <th>  <input type="text" name="morning_2" class="form-control" placeholder='00:00:00' ></th>
+                    <th> <input type="text" name="morning_3" class="form-control" placeholder='00:00:00' > </th>
+                    <th> <input type="text" name="morning_4" class="form-control" placeholder='00:00:00' ></th>
+                </tr>
+                <tr>
+                    <th> <input type="text" name="morning_5" class="form-control" placeholder='00:00:00' > </th>
+                    <th> <input type="text" name="morning_6" class="form-control" placeholder='00:00:00' > </th>
+                    <th> <input type="text" name="morning_7" class="form-control" placeholder='00:00:00' ></th>
+                    <th> <input type="text" name="morning_8" class="form-control" placeholder='00:00:00' > </th>
+                </tr>
+                <tr>
+                    <th> <input type="text" name="morning_9" class="form-control" placeholder='00:00:00' > </th>
+                    <th> <input type="text" name="morning_10" class="form-control" placeholder='00:00:00' > </th>
+                    <th> <input type="text" name="morning_11" class="form-control" placeholder='00:00:00' > </th>
+                    <th> <input type="text" name="morning_12" class="form-control" placeholder='00:00:00' > </th>
+                
+                </tr>
+
+                <tr>
+                   
+                    <th> <br>
+                        <h4>Afternoon</h4>
+                    </th>
+                    <tr>
+                        <th> <input type="text" name="afternoon_1" class="form-control" placeholder='1:30:pm' > </th>
+                        <th> <input type="text" name="afternoon_2" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="afternoon_3" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="afternoon_4" class="form-control" placeholder='00:00:00' > </th>
+                    </tr>
+
+                    <tr>
+                        <th> <input type="text" name="afternoon_5" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="afternoon_6" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="afternoon_7" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="afternoon_8" class="form-control" placeholder='00:00:00' > </th>
+                    </tr>
+                    <tr>
+                        <th> <input type="text" name="afternoon_9" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="afternoon_10" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="afternoon_11" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="afternoon_12" class="form-control" placeholder='00:00:00' > </th>
+                    </tr>
+                </tr>
+                
+                <tr>
+                    <th>
+                        <br>
+                        <h4>Evening</h4>
+                    </th>
+                    <tr>
+                        <th> <input type="text" name="evening_1" class="form-control" placeholder='6:00:pm' > </th>
+                        <th> <input type="text" name="evening_2" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="evening_3" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="evening_4" class="form-control" placeholder='00:00:00' > </th>
+                    </tr>
+
+                    <tr>
+                        <th> <input type="text" name="evening_5" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="evening_6" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="evening_7" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="evening_8" class="form-control" placeholder='00:00:00' > </th>
+                    </tr>
+                    <tr>
+                        <th> <input type="text" name="evening_9" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="evening_10" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="evening_11" class="form-control" placeholder='00:00:00' > </th>
+                        <th> <input type="text" name="evening_12" class="form-control" placeholder='00:00:00' > </th>
+                    </tr>
+                </tr>
+              </div>
+            
+            </table>
+            </div>
+          </div>
+          <br><br>
+         <center> <button type="submit" class="btnSubmit">Submit</button> </center>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+{% endblock content %}

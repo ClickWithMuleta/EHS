@@ -1,0 +1,105 @@
+<!-- templates/recommendation_result.html -->
+{% extends 'hospital/patient_base.html' %}
+{% load widget_tweaks %}
+{% load custom_filters %}
+{% block content %}
+{%load static%}
+<head>
+    <title>Recommendation Result</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style media="screen">
+        a:link {
+          text-decoration: none;
+        }
+    
+        h6 {
+          text-align: center;
+        }
+    
+        .row {
+          margin: 100px;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+          }
+          
+          button:hover {
+            opacity: 0.8;
+          }
+      </style>
+</head>
+  <br>
+  <div style=" width: 740px; margin-left:145px;"> 
+      <center> <span style="font-size:40px; color: #04AA6D; ">Recommonded Doctor</span><br>
+     <span style="font-size:21px; color:black; ">Depending on your symptoms here is recommonded doctor for you.</span></center>
+     <br> 
+     <table class="table table-hover" id="dev-table">
+
+      <thead>
+        <tr>
+          <th>Profile</th>
+          <th> Doctor_Name</th>
+          <th>Specilization</th>
+          <th>Working_Hospital</th>
+          <th>Expriance</th>
+          <th><span style="color: #04AA6D;">Status</span></th>
+
+
+
+        </tr>
+      </thead>
+    </div>
+
+    <div>
+
+     
+      <tr>
+        {% for doctor in recommended_doctors %}
+        <td> <img src=" {% static doctor.profile_pic.url %}" width="100px" height="130px" alt="Profile Photo">  </td>
+        <td> {{doctor.get_name}}</td>
+        <td>{{doctor.department}}</td>
+        <td>{{doctor.hospital_name}}</td>
+        <td>{{doctor.expriance}} yrs</td>
+
+        {% if doctor.is_avialable %}
+
+          {% if doctor.admitDate == doctor.todayDate %}
+
+         <th> <span >  <span style="color:  rgb(9, 152, 218);">Avialable Today</span> <br><br><span style="color: fuchsia;"> Likes</span>(0%) <span style="color: fuchsia;"> Votes</span>(0)</span>
+          {%else%}
+            {% if doctor.expriance > 5 %}
+              <th> <span >  <span style="color:  rgb(9, 152, 218);">Avialable Today</span> <br><br><span style="color: fuchsia;"> Likes</span>(99%) <span style="color: fuchsia;"> Votes</span>(200)</span>
+              {%else%}
+            <th> <span >  <span style="color:  rgb(9, 152, 218);">Avialable Today</span><br><br><span style="color: fuchsia;"> Likes</span>(50%) <span style="color: fuchsia;"> Votes</span>(100)</span>
+              {%endif%}
+         {%endif%}
+    
+        <th><a href="{% url 'patient-view-appointment-details'  doctor.id  %}">  <br> <button style="width:auto;">book</button> </a> 
+        </th>
+        {%endif%}
+
+        </tr>
+        {%endfor%}
+
+  
+    </table>
+        
+    
+   </div>
+
+
+
+
+{% endblock content %}
+
+

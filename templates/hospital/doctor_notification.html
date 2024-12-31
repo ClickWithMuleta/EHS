@@ -1,0 +1,63 @@
+{% extends 'hospital/doctor_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+    p{
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<div>
+  {% if  pendingappointmentcount  or  patientlabresult%}
+
+  {% if  pendingappointmentcount %}
+  <center>  <h2 style="background-color: rgb(11, 148, 234); color:white">This is Appointment For You Please Approve It.</h2></center>
+           
+         
+  {% for a in appointments %}
+  {% if a.doctorName == user.first_name %}
+      <div style="width: 100%;">____________________________________________________________________________________________________________________________</div>       
+      <p> <strong>Patient Name : </strong> {{a.patientName}}</p>  
+      <p><strong>Appointment Date :  </strong> {{a.appointmentDate}} {{a.appointmentTime}} </p>
+      {%endif%}
+      {% endfor %}
+
+      {% endif %}
+  {% if  patientlabresult %}
+  <center>  <h2 style="background-color: blueviolet; color:white">This is Patient Name Whose Their Lab Result is Reported.</h2></center>
+          
+  {% for p in patientlabresult %}
+  {% if p.doctorName == user.first_name %}
+      <div style="width: 100%;">____________________________________________________________________________________________________________________________</div>       
+      <p> <strong>Patient Name : </strong> {{p.patientName}}</p>  
+      {%endif%}
+      {% endfor %}
+  </div>
+
+{% endif %}
+
+
+{% else %}
+<center>  <h2> There is no Notifications</h2></center>
+
+{% endif %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock content %}

@@ -1,0 +1,117 @@
+{% extends 'hospital/patient_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+
+    .menu {
+      top: 50px;
+    }
+  </style>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<br><br>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container register-form">
+    <div class="form">
+      <div class="note">
+        <p>book appointement details 2</p>
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-6">
+
+            <div class="form-group">
+              {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+            </div>
+            <div class="form-group">
+             
+              {% render_field appointementForm.appointmentDate required="required" class="form-control" placeholder="appointement_date" %}
+            </div>
+            
+        {%for s in appointementSchedule %}
+        <br>
+        <div style=" text-align:center; font-size: 20px; background-color:#0d85b0; color:white; width:70%;">Mornining </div>
+          <br>
+          <input type="button"   id="m1" value="{{ s.morning_1 }}" onclick="setValue('{{ s.morning_1 }}')"> 
+          <input type="button"   id="m2" value="{{ s.morning_2 }}" onclick="setValue('{{ s.morning_2 }}')">
+          <input type="button" id="m3" value="{{ s.morning_3 }}" onclick="setValue('{{ s.morning_3 }}')">
+          <input type="button" id="m4" value="{{ s.morning_4 }}" onclick="setValue('{{ s.morning_4 }}')">
+          <br><br>
+         <br>
+         <div style=" text-align:center; font-size: 20px; background-color:#0d85b0; color:white; width:70%;">Afternoon </div>
+            <br>
+       <input type="button" id="a1" value="{{ s.afternoon_1 }}" onclick="setValue('{{ s.afternoon_1 }}')">   <input type="button" id="a2" value="{{ s.afternoon_2 }}" onclick="setValue('{{ s.afternoon_2 }}')">  <input type="button" id="a3" value="{{ s.afternoon_3 }}" onclick="setValue('{{ s.afternoon_3 }}')">    <input type="button" id="a4" value="{{ s.afternoon_4 }}" onclick="setValue('{{ s.afternoon_4 }}')">  <br><br>
+            <br>
+       <div style=" text-align:center; font-size: 20px; background-color:#0d85b0; color:white; width:70%;">Evening </div>
+            <br>
+       <input type="button" id="e1" value="{{ s.evening_1 }}" onclick="setValue('{{ s.evening_1 }}')">   <input type="button" id="e2" value="{{ s.evening_2 }}" onclick="setValue('{{ s.evening_2 }}')">  <input type="button" id="e3" value="{{ s.evening_3 }}" onclick="setValue('{{ s.evening_3 }}')">    <input type="button" id="e4" value="{{ s.evening_4 }}" onclick="setValue('{{ s.evening_4 }}')">  <br><br>
+      
+        <span style="font-weight: bold;">Selected Time:</span> <input type="text" name="appointement" id="appointement" value="{{ s.morning_1 }}"  readonly required placeholder="00:00:00" style="width:74px;"  > <br><br>
+        {%endfor%}
+
+        <div style="color:rgb(224, 9, 59); ">
+          {% for msg in messages %}
+          {{msg}}
+          {%endfor%}
+        </div><br>
+        <input class="btnSubmit" type="submit" >
+
+
+
+          </div>
+
+
+        </div>
+        <br>
+
+      </div>
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+  function setValue(value) {
+    document.getElementById('appointement').value = value;
+  }
+</script>
+
+
+{% endblock content %}

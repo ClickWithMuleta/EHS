@@ -1,0 +1,89 @@
+{% include 'hospital/navbar.html' %}
+
+{% block content %}
+
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+
+
+  footer {
+    background-color: black;
+    margin: 0px;
+    height: 112px;
+    color: white;
+  }
+
+  p {
+    margin-left: 400px;
+    text-align: start;
+    font-size: 28px;
+
+  }
+  .star-rating {
+    unicode-bidi: bidi-override;
+    color: #cccccc;
+    font-size: 30px;
+    width: auto;
+    display: inline-block;
+    position: relative;
+}
+.star-rating span {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    color: gold;
+    margin-left: 322px;
+}
+  
+  </style>
+</head>
+
+  {% for hd in hospitaldetails %}  <br>
+  <img src="{% static hd.hospital_pic.url %}" alt="hospital Pic"  style="margin-left: 239px;" width="60%" />
+  <br> <br><br><br>
+  <div class="star-rating" title="{{ rating }}/5">
+    <span >★★★★★</span><p style="margin-left: 555px;">12 reviews</p>
+</div>  
+
+<p> <strong>{{hd.hospitalName}} Hospital</strong></p> 
+    <p style="background-color: rgb(12, 174, 219); width:fit-content;">  {{hd.description}}  </p> 
+    <p>  Telephone : {{hd.mobile}}</p> 
+    <p>  Email: {{hd.email}} </p> 
+    <p> Address :  {{hd.address}}</p> 
+    <p> <strong> See on Google Map : </strong> <a href="https://www.google.com/search?q=all+hospitals+in+harar+city&sca_esv=a03d90e6355dafdc&sca_upv=1&rlz=1C1KNTJ_enET1073ET1073&sxsrf=ADLYWIINbIIxsm7mdDEt83io2v1QvBD8gA:1715882220017&udm=1&sa=X&ved=2ahUKEwif58yx35KGAxXuQ_EDHRr0O5EQjGp6BAgpEAE&biw=1280&bih=551&dpr=1.5#ip=1">Click Here</a></p> 
+
+    {%endfor%} 
+    <br><br><br><br><br><br><br><br><br>
+    <footer>
+     
+
+              
+                  <div>
+<br><br>
+                  <p>
+                  Copyright &copy; 2024 All Rights Reserved </p>
+                  </div>
+            
+    </footer>
+
+    
+
+{% endblock content %}
