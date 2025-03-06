@@ -36,10 +36,13 @@ A **Django-based hospital management system** designed to streamline healthcare 
 Ensure you have the following installed:
 - **Python 3.10+**
 - **Django & Required Dependencies**
-- **PostgreSQL or SQLite** (default: SQLite)
-- **Virtual Environment (venv)**
+- (default: SQLite3)
+
 
 ### 1. Clone the Repository
 ```sh
 git clone https://github.com/your-username/eHospital-System.git
 cd eHospital-System
+
+```sh
+python manage.py runserver
