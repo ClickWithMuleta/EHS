@@ -1,6 +1,6 @@
 # eHospital System for Harar City
 
-A **Django-based hospital management system** designed to streamline healthcare services in **Harar City**.
+A **Django-based ehospital management system** designed to streamline healthcare services in **Harar City**.
 
 ## Core Features
 
@@ -25,7 +25,7 @@ A **Django-based hospital management system** designed to streamline healthcare 
 - Track payments and pending balances.
 
 ### User Authentication & Roles
-- Secure login for **Admins, Doctors, Nurses, and Patients**.
+- Secure login for **Admins, Doctors, Pharmacists,libratory technicians and Patients**.
 - Role-based access control for different system users.
 
 ---
@@ -41,7 +41,7 @@ Ensure you have the following installed:
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/your-username/eHospital-System.git
+git clone https://github.com/ClickWithMuleta/EHS.git
 ```
 ```sh
 cd eHospital-System
