@@ -8,9 +8,10 @@ A **Django-based ehospital management system** designed to streamline healthcare
 - Register and manage patient information.
 - View patient history and medical records.
 
-### Doctor & Staff Management
-- Assign doctors to patients.
-- Manage hospital staff and roles.
+### Doctor Recommendation
+- Recommends the best doctor for a patient based on symptoms or specialization.
+- Ensures patients receive the most appropriate medical attention.
+
 
 ### Appointment Scheduling
 - Schedule, update, and cancel patient appointments.
@@ -39,7 +40,7 @@ Ensure you have the following installed:
 
 
 
-### 1. Clone the Repository
+### Clone the Repository
 ```sh
 git clone https://github.com/ClickWithMuleta/EHS.git
 ```
