@@ -1,1 +1,45 @@
-# EHS
+# eHospital System for Harar City
+
+A **Django-based hospital management system** designed to streamline healthcare services in **Harar City**.
+
+## Core Features
+
+### Patient Management
+- Register and manage patient information.
+- View patient history and medical records.
+
+### Doctor & Staff Management
+- Assign doctors to patients.
+- Manage hospital staff and roles.
+
+### Appointment Scheduling
+- Schedule, update, and cancel patient appointments.
+- Send appointment reminders.
+
+### Electronic Medical Records (EMR)
+- Store and retrieve patient diagnosis history.
+- Attach prescriptions and medical reports.
+
+### Billing & Payment System
+- Generate invoices for medical services.
+- Track payments and pending balances.
+
+### User Authentication & Roles
+- Secure login for **Admins, Doctors, Nurses, and Patients**.
+- Role-based access control for different system users.
+
+---
+
+## Setup Instructions
+
+### Prerequisites
+Ensure you have the following installed:
+- **Python 3.10+**
+- **Django & Required Dependencies**
+- **PostgreSQL or SQLite** (default: SQLite)
+- **Virtual Environment (venv)**
+
+### 1. Clone the Repository
+```sh
+git clone https://github.com/your-username/eHospital-System.git
+cd eHospital-System
